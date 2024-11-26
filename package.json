@@ -1,0 +1,13 @@
+{
+  "name": "@swiperbox/monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "npm run dev -w @swiperbox/example",
+    "dev": "npm run dev -w @swiperbox/example",
+    "build": "npm run build -w @swiperbox/swiperbox",
+    "build-watch": "npm run build-watch -w @swiperbox/swiperbox"
+  }
+}

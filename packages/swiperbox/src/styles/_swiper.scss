@@ -1,0 +1,74 @@
+.swiperbox__swiper {
+    &_main {
+        height: 100%;
+        overflow: hidden;
+
+        .swiper-slide {
+            img {
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+
+    &_thumbs {
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .swiper-slide {
+            max-width: max-content;
+            opacity: 0.4;
+            cursor: pointer;
+            position: relative;
+
+            &-thumb-active {
+                opacity: 1;
+            }
+
+            img {
+                height: 100%;
+                width: auto;
+                max-width: 100%;
+            }
+
+            .swiperbox-thumb-play-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+            }
+        }
+
+        .swiperbox-button {
+            &-prev, &-next {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                cursor: pointer;
+                background: none;
+                border: none;
+                outline: none;
+                padding: 10px;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(255, 255, 255, 0.8);
+
+                &.swiper-button-disabled {
+                    display: none;
+                }
+            }
+
+            &-prev {
+                left: 0;
+            }
+
+            &-next {
+                right: 0;
+            }
+        }
+    }
+}
