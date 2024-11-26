@@ -12,5 +12,9 @@
     background: none;
     outline: none;
     padding: 14px 10px;
+
+    &:not(:disabled) {
+      color: #464646;
+    }
   }
 }
