@@ -1,6 +1,7 @@
 {
-  "name": "@swiperbox/example",
+  "name": "@padaliyajay20/swiperbox-example",
   "version": "1.0.0",
+  "private": true,
   "description": "example test for swiperbox",
   "main": "index.js",
   "scripts": {
@@ -10,7 +11,7 @@
   "author": "Jay Padaliya",
   "license": "ISC",
   "dependencies": {
-    "@swiperbox/swiperbox": "^1.0.0"
+    "@padaliyajay20/swiperbox": "^1.0.0"
   },
   "devDependencies": {
     "vite": "^5.4.10"

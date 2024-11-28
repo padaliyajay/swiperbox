@@ -1,13 +1,14 @@
 {
-  "name": "@swiperbox/monorepo",
+  "name": "@padaliyajay20/swiperbox-monorepo",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "start": "npm run dev -w @swiperbox/example",
-    "dev": "npm run dev -w @swiperbox/example",
-    "build": "npm run build -w @swiperbox/swiperbox",
-    "build-watch": "npm run build-watch -w @swiperbox/swiperbox"
+    "start": "npm run dev -w @padaliyajay20/swiperbox-example",
+    "dev": "npm run dev -w @padaliyajay20/swiperbox-example",
+    "build": "npm run build -w @padaliyajay20/swiperbox",
+    "build-watch": "npm run build-watch -w @padaliyajay20/swiperbox",
+    "publish": "npm run build -w @padaliyajay20/swiperbox && npm publish -w @padaliyajay20/swiperbox"
   }
 }
