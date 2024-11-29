@@ -8,12 +8,13 @@ npm i @padaliyajay20/swiperbox
 
 ### Peer dependencies
 ```bash
-npm i swiper @fortawesome/fontawesome-free
+npm i swiper@7 @fortawesome/fontawesome-free
 ```
 
 ## Usage
 ```js
-import { Swiperbox } from '@swiperbox/swiperbox';
+import '@padaliyajay20/swiperbox/dist/style.css';
+import Swiperbox from '@swiperbox/swiperbox';
 
 const items = [
     {

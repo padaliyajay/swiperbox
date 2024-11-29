@@ -1,5 +1,5 @@
 import '@padaliyajay20/swiperbox/dist/style.css';
-import Swiperbox from '@padaliyajay20/swiperbox';
+import '@padaliyajay20/swiperbox/dist/swiperbox.umd';
 
 const items = [
     {
@@ -58,5 +58,5 @@ const items = [
 
 const btn = document.getElementById('open');
 btn.addEventListener('click', () => {
-    Swiperbox.open({ items });
+    swiperbox.open({ items });
 });

@@ -1,6 +1,3 @@
-import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
-
 export function Thumbs(dialog, config) {
   if (config.items.length <= 1) return;
 
@@ -30,7 +27,6 @@ export function Thumbs(dialog, config) {
   });
 
   new Swiper(thumbs, {
-    modules: [Navigation],
     initialSlide: config.index,
     slidesPerView: "auto",
 		centerInsufficientSlides: true,

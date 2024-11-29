@@ -1,5 +1,3 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination, Zoom, Thumbs, Keyboard } from "swiper/modules";
 import { convertToEmbedUrl } from "../utils/convertToEmbedUrl";
 
 export function Gallery(dialog, config) {
@@ -27,7 +25,7 @@ export function Gallery(dialog, config) {
     } else {
       slide.innerHTML = `
         <div class="swiper-zoom-container">
-          <img src="${item.image}" alt="${item?.alt}" loading="lazy">
+          <img data-src="${item.image}" alt="${item?.alt}" class="swiper-lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
           <div class="swiper-lazy-preloader"></div>
         </div>
       `;
@@ -38,10 +36,11 @@ export function Gallery(dialog, config) {
 
   new Swiper(swiper, {
     ...config.swiper,
-    modules: [Navigation, Pagination, Zoom, Thumbs, Keyboard],
     initialSlide: config.index,
+    preloadImages: false,
+    lazy: true,
     zoom: {
-      maxRatio: 1.5,
+      maxRatio: 2,
       toggle: true,
     },
     pagination: {
@@ -52,7 +51,7 @@ export function Gallery(dialog, config) {
       enabled: true,
     },
     thumbs: {
-			swiper: dialog.querySelector(".swiperbox__swiper_thumbs"),
+			swiper: dialog.querySelector(".swiperbox__swiper_thumbs").swiper,
 		},
   });
 
