@@ -32,6 +32,16 @@
                 max-width: 100%;
             }
 
+            .swiperbox-thumb-custom {
+                width: 100px;
+                height: 100%;
+                border: 1px solid black;
+
+                & + .swiperbox-thumb-play-icon {
+                    color: black;
+                }
+            }
+
             .swiperbox-thumb-play-icon {
                 position: absolute;
                 top: 50%;

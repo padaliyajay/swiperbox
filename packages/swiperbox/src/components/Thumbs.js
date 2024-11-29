@@ -15,12 +15,24 @@ export function Thumbs(dialog, config) {
   config.items.forEach((item) => {
     const slide = document.createElement("div");
     slide.classList.add("swiper-slide");
-    slide.innerHTML = `<img src="${item.thumb}" alt="${item?.alt}">`;
+
+    if (item.thumb) {
+      slide.innerHTML = `<img src="${item.thumb}" alt="${item?.alt}">`;
+    } else {
+      slide.innerHTML = `<img src="${item.image}" alt="${item?.alt}">`;
+    }
+
     swiper_wrapper.appendChild(slide);
 
-    if (item.video) {
+    if (item.video && item.thumb) {
       slide.innerHTML = `
         <img src="${item.thumb}" alt="${item?.alt}">
+        <div class="swiperbox-thumb-play-icon">${config.icons.play}</div>
+      `;
+    }
+    if (item.video && !item.thumb) {
+      slide.innerHTML = `
+        <div class="swiperbox-thumb-custom"></div>
         <div class="swiperbox-thumb-play-icon">${config.icons.play}</div>
       `;
     }

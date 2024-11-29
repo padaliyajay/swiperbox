@@ -17,8 +17,8 @@ const c = {
 };
 function p() {
   const e = document.createElement("dialog");
-  return e.open = !0, e.addEventListener("close", () => {
-    document.body.removeChild(e);
+  return e.open = !0, document.body.classList.add("swiperbox-open"), e.addEventListener("close", () => {
+    document.body.removeChild(e), document.body.classList.remove("swiperbox-open");
   }), document.addEventListener("keydown", (s) => {
     s.key === "Escape" && e.close();
   }), e;
@@ -41,24 +41,24 @@ function u(e) {
   }
   return e;
 }
-function m(e, s) {
+function b(e, s) {
   const t = document.createElement("div");
   t.classList.add("swiper"), t.classList.add("swiperbox__swiper_main"), t.innerHTML = `
     <div class="swiper-wrapper"></div>
 	`;
-  const o = t.querySelector(".swiper-wrapper");
-  s.items.forEach((r) => {
+  const r = t.querySelector(".swiper-wrapper");
+  s.items.forEach((o) => {
     const i = document.createElement("div");
-    i.classList.add("swiper-slide"), r.iframe ? i.innerHTML = `
+    i.classList.add("swiper-slide"), o.iframe ? i.innerHTML = `
         <div class="swiperbox-iframe-container">
-          <iframe src="${u(r.iframe)}" frameborder="0" allowfullscreen></iframe>
+          <iframe src="${u(o.iframe)}" frameborder="0" allowfullscreen></iframe>
         </div>
       ` : i.innerHTML = `
         <div class="swiper-zoom-container">
-          <img data-src="${r.image}" alt="${r == null ? void 0 : r.alt}" class="swiper-lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
+          <img data-src="${o.image}" alt="${o == null ? void 0 : o.alt}" class="swiper-lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
           <div class="swiper-lazy-preloader"></div>
         </div>
-      `, o.appendChild(i);
+      `, r.appendChild(i);
   }), new Swiper(t, {
     ...s.swiper,
     initialSlide: s.index,
@@ -80,7 +80,7 @@ function m(e, s) {
     }
   }), e.querySelector(".swiperbox__wrapper").appendChild(t);
 }
-function b(e, s) {
+function m(e, s) {
   if (s.items.length <= 1) return;
   const t = document.createElement("div");
   t.classList.add("swiper"), t.classList.add("swiperbox__swiper_thumbs"), t.innerHTML = `
@@ -88,11 +88,14 @@ function b(e, s) {
 		<button class="swiperbox-button-prev">${s.icons.prev}</button>
 		<button class="swiperbox-button-next">${s.icons.next}</button>
 	`;
-  const o = t.querySelector(".swiper-wrapper");
+  const r = t.querySelector(".swiper-wrapper");
   s.items.forEach((i) => {
     const n = document.createElement("div");
-    n.classList.add("swiper-slide"), n.innerHTML = `<img src="${i.thumb}" alt="${i == null ? void 0 : i.alt}">`, o.appendChild(n), i.video && (n.innerHTML = `
+    n.classList.add("swiper-slide"), i.thumb ? n.innerHTML = `<img src="${i.thumb}" alt="${i == null ? void 0 : i.alt}">` : n.innerHTML = `<img src="${i.image}" alt="${i == null ? void 0 : i.alt}">`, r.appendChild(n), i.video && i.thumb && (n.innerHTML = `
         <img src="${i.thumb}" alt="${i == null ? void 0 : i.alt}">
+        <div class="swiperbox-thumb-play-icon">${s.icons.play}</div>
+      `), i.video && !i.thumb && (n.innerHTML = `
+        <div class="swiperbox-thumb-custom"></div>
         <div class="swiperbox-thumb-play-icon">${s.icons.play}</div>
       `);
   }), new Swiper(t, {
@@ -106,23 +109,23 @@ function b(e, s) {
       prevEl: t.querySelector(".swiperbox-button-prev")
     }
   });
-  const r = e.querySelector(".swiperbox__thumbs");
-  r.appendChild(t), r.classList.remove("hidden");
+  const o = e.querySelector(".swiperbox__thumbs");
+  o.appendChild(t), o.classList.remove("hidden");
 }
 function w(e, s) {
   if (s.items.length <= 1) return;
-  const t = e.querySelector(".swiperbox__thumbs"), o = document.createElement("button");
-  o.innerHTML = s.icons.thumbsToggle, o.addEventListener("click", () => {
+  const t = e.querySelector(".swiperbox__thumbs"), r = document.createElement("button");
+  r.innerHTML = s.icons.thumbsToggle, r.addEventListener("click", () => {
     t.classList.toggle("hidden");
-  }), e.querySelector(".swiperbox__buttons").appendChild(o);
+  }), e.querySelector(".swiperbox__buttons").appendChild(r);
 }
-function f(e, s) {
+function v(e, s) {
   const t = document.createElement("button");
   t.innerHTML = s.icons.close, t.addEventListener("click", () => {
     e.close();
   }), e.querySelector(".swiperbox__buttons").appendChild(t);
 }
-function v(e, s) {
+function h(e, s) {
   e.classList.add("swiperbox"), e.classList.add("swiperbox__dialog"), e.innerHTML = `
 		<div class="swiperbox__container">
 			<div class="swiperbox__wrapper"></div>
@@ -132,17 +135,17 @@ function v(e, s) {
 		</div>
 	`;
 }
-function h(e, s) {
-  const t = document.createElement("button"), o = document.createElement("button");
-  t.innerHTML = s.icons.zoomIn, o.innerHTML = s.icons.zoomOut, o.disabled = !0;
-  const r = e.querySelector(".swiperbox__swiper_main").swiper;
+function f(e, s) {
+  const t = document.createElement("button"), r = document.createElement("button");
+  t.innerHTML = s.icons.zoomIn, r.innerHTML = s.icons.zoomOut, r.disabled = !0;
+  const o = e.querySelector(".swiperbox__swiper_main").swiper;
   t.addEventListener("click", () => {
-    r.zoom.in(r.zoom.scale + 0.5);
-  }), o.addEventListener("click", () => {
-    r.zoom.out();
-  }), r.on("zoomChange", (i, n) => {
-    n === 1 ? o.disabled = !0 : o.disabled = !1;
-  }), e.querySelector(".swiperbox__buttons").appendChild(t), e.querySelector(".swiperbox__buttons").appendChild(o);
+    o.zoom.in(o.zoom.scale + 0.5);
+  }), r.addEventListener("click", () => {
+    o.zoom.out();
+  }), o.on("zoomChange", (i, n) => {
+    n === 1 ? r.disabled = !0 : r.disabled = !1;
+  }), e.querySelector(".swiperbox__buttons").appendChild(t), e.querySelector(".swiperbox__buttons").appendChild(r);
 }
 function d(e) {
   if (e = { ...c, ...e }, !Array.isArray(e.items) || e.items.length === 0)
@@ -152,14 +155,14 @@ function d(e) {
       throw new Error("Invalid item. Must be an object with image or iframe");
   });
   const s = p();
-  v(s), b(s, e), w(s, e), m(s, e), h(s, e), f(s, e), document.body.appendChild(s);
+  h(s), m(s, e), w(s, e), b(s, e), f(s, e), v(s, e), document.body.appendChild(s);
 }
 function l(e, s = {}) {
   var t = [];
-  const o = (r, i = 0) => {
-    r.preventDefault(), d({ ...s, items: t, index: i });
+  const r = (o, i = 0) => {
+    o.preventDefault(), d({ ...s, items: t, index: i });
   };
-  e instanceof HTMLElement ? t = [a(e, o)] : typeof e === NodeList || Array.isArray(e) ? t = Array.from(e).map((r, i) => a(r, (n) => o(n, i))) : typeof e == "string" && (t = Array.from(document.querySelectorAll(e)).map((r, i) => a(r, (n) => o(n, i)))), t.length === 0 && console.error("No items found");
+  e instanceof HTMLElement ? t = [a(e, r)] : typeof e === NodeList || Array.isArray(e) ? t = Array.from(e).map((o, i) => a(o, (n) => r(n, i))) : typeof e == "string" && (t = Array.from(document.querySelectorAll(e)).map((o, i) => a(o, (n) => r(n, i)))), t.length === 0 && console.error("No items found");
 }
 function a(e, s) {
   return e.addEventListener("click", s), {

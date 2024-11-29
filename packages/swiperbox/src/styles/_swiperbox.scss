@@ -3,6 +3,10 @@
         box-sizing: border-box;
     }
 
+    &-open {
+        overflow: hidden;
+    }
+
     &-iframe-container {
         position: relative;
         margin: auto;

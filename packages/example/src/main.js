@@ -29,7 +29,7 @@ const items = [
         alt: 'Fifth video',
     },
     {
-        thumb: 'https://lipsum.app/id/06/192x144',
+        // thumb: 'https://lipsum.app/id/06/192x144',
         iframe: 'https://vimeo.com/726994568',
         video: true,
         alt: 'Sixth video',
