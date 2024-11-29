@@ -14,7 +14,9 @@ export default defineConfig({
         /^swiper/i,
       ],
       output: {
-        globals: {}
+        globals: {
+          swiper: 'Swiper',
+        }
       }
     }
   },

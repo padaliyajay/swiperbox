@@ -1,5 +1,5 @@
-import '@swiperbox/swiperbox/dist/style.css';
-import { Swiperbox } from '@swiperbox/swiperbox';
+import '@padaliyajay20/swiperbox/dist/style.css';
+import Swiperbox from '@padaliyajay20/swiperbox';
 
 const items = [
     {
