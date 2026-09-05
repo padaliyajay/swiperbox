@@ -36,7 +36,6 @@ export function Gallery(dialog, config) {
   new Swiper(swiper, {
     ...config.swiper,
     initialSlide: config.index,
-    preloadImages: false,
     zoom: {
       maxRatio: 2,
       toggle: true,
