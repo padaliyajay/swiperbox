@@ -1,6 +1,6 @@
 {
   "name": "@padaliyajay20/swiperbox",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "type": "module",
   "description": "Fancybox alternative base on Swiper",
   "keywords": [
@@ -23,12 +23,12 @@
   "author": "Jay Padaliya",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.80.4",
-    "vite": "^5.4.10"
+    "sass": "^1.104",
+    "vite": "^8.2"
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.0",
-    "swiper": "^7.4.1"
+    "@fortawesome/fontawesome-free": "^6.7",
+    "swiper": "^14.2"
   },
   "publishConfig": {
     "access": "public"

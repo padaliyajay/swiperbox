@@ -1,3 +1,5 @@
+@use "variables" as vars;
+
 .swiperbox__swiper {
     &_main {
         height: 100%;
@@ -30,6 +32,7 @@
                 height: 100%;
                 width: auto;
                 max-width: 100%;
+                border: vars.$thumbnailBorderWidth solid vars.$thumbnailBorderColor;
             }
 
             .swiperbox-thumb-custom {
