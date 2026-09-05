@@ -1,4 +1,4 @@
-import '@padaliyajay20/swiperbox/dist/style.css';
+import '@padaliyajay20/swiperbox/dist/swiperbox.min.css';
 import '@padaliyajay20/swiperbox/dist/swiperbox.umd';
 
 const items = [
