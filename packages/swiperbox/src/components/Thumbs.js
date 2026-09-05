@@ -41,9 +41,8 @@ export function Thumbs(dialog, config) {
   new Swiper(thumbs, {
     initialSlide: config.index,
     slidesPerView: "auto",
-		centerInsufficientSlides: true,
+	centerInsufficientSlides: true,
     spaceBetween: 20,
-		initialSlide: 0,
     navigation: {
       nextEl: thumbs.querySelector(".swiperbox-button-next"),
       prevEl: thumbs.querySelector(".swiperbox-button-prev"),

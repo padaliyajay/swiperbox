@@ -19,14 +19,13 @@ export function Gallery(dialog, config) {
     if (item.iframe) {
       slide.innerHTML = `
         <div class="swiperbox-iframe-container">
-          <iframe src="${convertToEmbedUrl(item.iframe)}" frameborder="0" allowfullscreen></iframe>
+          <iframe src="${convertToEmbedUrl(item.iframe)}" allowfullscreen></iframe>
         </div>
       `;
     } else {
       slide.innerHTML = `
         <div class="swiper-zoom-container">
-          <img data-src="${item.image}" alt="${item?.alt}" class="swiper-lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
-          <div class="swiper-lazy-preloader"></div>
+          <img src="${item.image}" alt="${item?.alt}" loading="lazy">
         </div>
       `;
     }
@@ -38,7 +37,6 @@ export function Gallery(dialog, config) {
     ...config.swiper,
     initialSlide: config.index,
     preloadImages: false,
-    lazy: true,
     zoom: {
       maxRatio: 2,
       toggle: true,
